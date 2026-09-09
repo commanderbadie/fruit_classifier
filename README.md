@@ -41,6 +41,13 @@ Top predictions + confidence scores
         ↓
 Results displayed on website
 ```
+## Live Demo
+
+Try the Fruit Classifier here:
+
+[Fruit Classifier — Live Demo](https://fruit-classifier-kazii.vercel.app/?utm_source=chatgpt.com)
+
+
 
 ### Project Goal
 
