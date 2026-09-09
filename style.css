@@ -1,0 +1,540 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #f5f5f7;
+    --card: #ffffff;
+    --text: #111111;
+    --muted: #6b6b6b;
+    --border: #e5e5e5;
+    --dark: #111111;
+}
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+
+    min-height: 100vh;
+}
+
+
+/* Main container */
+
+.app {
+    width: 100%;
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 60px 20px;
+}
+
+
+/* Header */
+
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.badge {
+    display: inline-block;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    background: #e9e9e9;
+
+    padding: 8px 14px;
+
+    border-radius: 50px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 70px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 20px;
+}
+
+.hero > p {
+    color: var(--muted);
+
+    font-size: 18px;
+
+    max-width: 550px;
+
+    margin: auto;
+
+    line-height: 1.6;
+}
+
+.model-info {
+    margin-top: 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* Cards */
+
+.card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    margin-bottom: 20px;
+}
+
+
+/* Upload */
+
+.drop-zone {
+    border: 2px dashed #d5d5d5;
+
+    border-radius: 15px;
+
+    padding: 55px 25px;
+
+    text-align: center;
+
+    transition: 0.2s ease;
+}
+
+.drop-zone.dragover {
+    border-color: #111;
+
+    background: #fafafa;
+}
+
+.upload-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #f0f0f0;
+
+    font-size: 25px;
+}
+
+.drop-zone h2 {
+    margin-bottom: 10px;
+
+    font-size: 24px;
+}
+
+.drop-zone > p {
+    color: var(--muted);
+
+    margin-bottom: 20px;
+}
+
+.upload-button {
+    display: inline-block;
+
+    background: var(--dark);
+
+    color: white;
+
+    padding: 13px 22px;
+
+    border-radius: 9px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.file-info {
+    font-size: 12px !important;
+
+    margin-top: 15px;
+
+    margin-bottom: 0 !important;
+}
+
+
+/* Preview */
+
+.preview-card h2 {
+    margin-bottom: 20px;
+}
+
+.image-wrapper {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    background: #f5f5f5;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+}
+
+#preview {
+    max-width: 100%;
+
+    max-height: 450px;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+}
+
+
+/* Analyze button */
+
+.predict-button {
+    width: 100%;
+
+    border: none;
+
+    background: var(--dark);
+
+    color: white;
+
+    padding: 16px;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.predict-button:disabled {
+    background: #bcbcbc;
+
+    cursor: not-allowed;
+}
+
+
+/* Loading */
+
+.status-card {
+    text-align: center;
+
+    padding: 45px;
+}
+
+.loader {
+    width: 35px;
+    height: 35px;
+
+    border: 4px solid #ddd;
+
+    border-top-color: #111;
+
+    border-radius: 50%;
+
+    margin: 0 auto 15px;
+
+    animation: spin 0.8s linear infinite;
+}
+
+.status-card p {
+    color: var(--muted);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Results */
+
+.results-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.small-heading {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: var(--muted);
+
+    margin-bottom: 8px;
+}
+
+#bestPrediction {
+    font-size: 32px;
+
+    word-break: break-word;
+}
+
+.confidence {
+    text-align: right;
+}
+
+#bestConfidence {
+    display: block;
+
+    font-size: 32px;
+
+    font-weight: 700;
+}
+
+.confidence small {
+    color: var(--muted);
+}
+
+.divider {
+    height: 1px;
+
+    background: var(--border);
+
+    margin: 25px 0;
+}
+
+
+/* Prediction rows */
+
+.prediction-row {
+    margin-top: 18px;
+}
+
+.prediction-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+}
+
+.prediction-name {
+    font-weight: 600;
+}
+
+.prediction-percentage {
+    color: var(--muted);
+}
+
+.progress {
+    width: 100%;
+
+    height: 9px;
+
+    background: #ededed;
+
+    border-radius: 50px;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+
+    background: #111;
+
+    border-radius: 50px;
+
+    transition: width 0.6s ease;
+}
+
+
+/* Reset button */
+
+.secondary-button {
+    width: 100%;
+
+    background: white;
+
+    border: 1px solid #ccc;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    margin-top: 30px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.secondary-button:hover {
+    background: #f5f5f5;
+}
+
+
+/* About */
+
+.about {
+    text-align: center;
+
+    padding: 30px 20px;
+}
+
+.about h2 {
+    margin-bottom: 12px;
+}
+
+.about > p {
+    color: var(--muted);
+
+    line-height: 1.7;
+
+    max-width: 650px;
+
+    margin: auto;
+}
+
+.tech-stack {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+.tech-stack span {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    padding: 8px 12px;
+
+    border-radius: 50px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+
+    color: #999;
+
+    font-size: 12px;
+
+    margin-top: 30px;
+
+    line-height: 2;
+}
+
+
+/* Utility */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .app {
+        padding: 35px 15px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .results-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .confidence {
+        text-align: left;
+    }
+
+    #bestPrediction {
+        font-size: 27px;
+    }
+
+    #bestConfidence {
+        font-size: 25px;
+    }
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 12px 0;
+}
+
+.social-links a {
+    color: #111;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover {
+    opacity: 0.6;
+}
